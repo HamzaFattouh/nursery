@@ -112,13 +112,7 @@
   font-size: 16px;
   line-height: 1.8;
 }
-  background: white;
-  border-radius: 20px;
-  padding: 30px;
-  margin-bottom: 25px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
+ 
 .about-section h2 {
   color: #ff69b4;
   font-size: 28px;

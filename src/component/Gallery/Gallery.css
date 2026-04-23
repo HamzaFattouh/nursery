@@ -93,13 +93,7 @@
     grid-template-columns: 1fr;
   }
 }
-  padding: 15px 30px;
-  border-radius: 30px;
-  color: #666;
-  font-size: 18px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-}
-
+  
 @media (max-width: 768px) {
   .gallery-hero h1 {
     font-size: 36px;
