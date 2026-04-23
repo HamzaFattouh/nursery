@@ -1,0 +1,180 @@
+
+/* =========================
+   BASE RESET
+========================= */
+header,
+header * {
+    box-sizing: border-box;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+header .navbar {
+    background: linear-gradient(135deg, #ff69b4 0%, #4169e1 100%);
+    padding: 15px 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+header .navbar .contaner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* =========================
+   LEFT SIDE
+========================= */
+.leftside {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* LOGO */
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+}
+
+/* NAV LINKS */
+.nav-list {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* LINK STYLE */
+.pageslink {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+/* UNDERLINE HOVER */
+.pageslink::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background: #ff69b4;
+    transition: 0.3s ease;
+}
+
+.pageslink:hover::after {
+    width: 100%;
+}
+
+/* ACTIVE LINK */
+.pageslink.active::after {
+    width: 100%;
+}
+
+/* =========================
+   RIGHT SIDE
+========================= */
+.rightside {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* USER ICON */
+.auth a {
+    color: white;
+    
+    transition: 0.3s;
+}
+
+.auth a:hover {
+    color: #ff69b4;
+}
+
+header .navbar .contaner .rightside .auth {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #fff; /* دائرة بيضاء */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+/* الأيقونة نفسها */
+header .navbar .contaner .rightside .auth svg {
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    font-size: 28px;
+}
+
+/* عند المرور */
+header .navbar .contaner .rightside .auth:hover {
+    border-color: #ff69b4; /* زهري */
+    box-shadow: 0 0 12px rgba(255, 105, 180, 0.6);
+    transform: scale(1.1);
+}
+
+/* تغيير لون الأيقونة عند hover */
+header .navbar .contaner .rightside .auth:hover svg {
+    color: #ff69b4;
+}
+
+/* =========================
+   BURGER BUTTON
+========================= */
+.burger {
+    display: none;
+    font-size: 26px;
+    color: white;
+    cursor: pointer;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+@media (max-width: 850px) {
+
+    .burger {
+        display: block;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #ff69b4 0%, #4169e1 100%);
+        display: none;
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    nav.open {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+}

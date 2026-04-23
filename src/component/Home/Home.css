@@ -1,0 +1,84 @@
+.home-page {
+  min-height: 100vh;
+  background: #fafafa;
+}
+
+.home-hero {
+  background: white;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.home-hero h1 {
+  font-size: 48px;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.home-hero p {
+  font-size: 20px;
+  color: #888;
+  margin-bottom: 35px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background: #1a1a2e;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.home-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.feature {
+  background: white;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.feature h3 {
+  color: #1a1a2e;
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.feature p {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .home-hero h1 {
+    font-size: 36px;
+  }
+  
+  .home-hero p {
+    font-size: 17px;
+  }
+}
