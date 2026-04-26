@@ -1,0 +1,131 @@
+.camerasPage {
+    padding: 32px;
+    text-align: right;
+}
+
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.pageHeader h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.addBtn {
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.camerasGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.cameraCard {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.cameraPreview {
+    height: 160px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #667eea 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cameraIcon {
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+.statusDot {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #dc2626;
+}
+
+.statusDot.active {
+    background: #10b981;
+}
+
+.cameraInfo {
+    padding: 20px;
+}
+
+.cameraInfo h3 {
+    margin: 0 0 4px;
+    color: #1a1a2e;
+}
+
+.cameraInfo p {
+    margin: 0 0 12px;
+    color: #555;
+    font-size: 14px;
+}
+
+.cameraRoles {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.roleTag {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.roleTag.admin {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.roleTag.teacher {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.roleTag.parent {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.cameraActions {
+    padding: 16px 20px;
+    border-top: 1px solid #e5e5e5;
+    display: flex;
+    gap: 8px;
+}
+
+.cameraActions .actionBtn {
+    flex: 1;
+    padding: 8px;
+    background: #fafafa;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.cameraActions .actionBtn.delete {
+    background: #fee2e2;
+    color: #dc2626;
+}

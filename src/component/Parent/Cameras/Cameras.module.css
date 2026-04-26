@@ -1,0 +1,150 @@
+.camerasPage {
+    padding: 32px;
+    text-align: right;
+}
+
+.pageHeader {
+    margin-bottom: 32px;
+}
+
+.pageHeader h1 {
+    font-size: 28px;
+    margin: 0 0 8px;
+    color: #1a1a2e;
+}
+
+.pageHeader p {
+    color: #555;
+}
+
+.camerasGridSelectable {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.cameraCardSelectable {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
+    transition: transform 0.2s;
+    border: 3px solid transparent;
+}
+
+.cameraCardSelectable:hover,
+.cameraCardSelectable.active {
+    transform: translateY(-4px);
+}
+
+.cameraCardSelectable.active {
+    border-color: #10b981;
+}
+
+.cameraPreviewSelectable {
+    height: 140px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #667eea 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.cameraIcon {
+    font-size: 40px;
+    opacity: 0.5;
+}
+
+.liveIndicator {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #dc2626;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.cameraInfoSelectable {
+    padding: 16px;
+}
+
+.cameraInfoSelectable h3 {
+    margin: 0 0 4px;
+    color: #1a1a2e;
+}
+
+.cameraInfoSelectable p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.videoPlayer {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.playerHeader {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.playerHeader h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #1a1a2e;
+}
+
+.liveBadge {
+    background: #dc2626;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.videoContainer {
+    background: #000;
+    height: 360px;
+}
+
+.placeholderVideo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.placeholderVideo span {
+    font-size: 56px;
+    opacity: 0.3;
+}
+
+.placeholderVideo p {
+    opacity: 0.5;
+    margin-top: 16px;
+}

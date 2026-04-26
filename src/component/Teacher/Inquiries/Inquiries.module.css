@@ -1,0 +1,102 @@
+.inquiriesPage {
+    padding: 32px;
+    text-align: right;
+}
+
+.pageHeader {
+    margin-bottom: 32px;
+}
+
+.pageHeader h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.inquiriesList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.inquiryCard {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.inquiryHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.inquiryInfo h3 {
+    margin: 0 0 4px;
+    color: #1a1a2e;
+}
+
+.inquiryInfo p {
+    margin: 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.inquiryMessage {
+    background: #fafafa;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.inquiryMessage p {
+    margin: 0 0 8px;
+}
+
+.date {
+    font-size: 12px;
+    color: #999;
+}
+
+.statusBadge {
+    background: #fef3c7;
+    color: #d97706;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.statusBadge.answered {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.responseForm textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    min-height: 100px;
+    resize: vertical;
+    margin-bottom: 12px;
+    font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+}
+
+.respondBtn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.responseText {
+    background: #d1fae5;
+    padding: 12px;
+    border-radius: 8px;
+    color: #059669;
+}

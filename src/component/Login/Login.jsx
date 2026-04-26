@@ -1,39 +1,42 @@
 import "./Login.Module.css";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { useSearchParams } from "react-router-dom";
 import { UserContext } from "../../Contexts/User";
-import axios from "axios";
+import { authAPI } from "../../services/api";
 import { toast, Bounce } from 'react-toastify';
 import { MdOutlineCancel } from "react-icons/md";
 import { object, string } from "yup";
 
-export default function login() {
-  // حالة لتخزين مدخلات المستخدم (اسم المستخدم وكلمة المرور)
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  let [searchParams] = useSearchParams();
-  const { user, setUser, setToken } = useContext(UserContext);
+  const { setUser, setToken } = useContext(UserContext);
   const [forgetPassDiv, setForgetPassDiv] = useState(false);
   const [SendCodeDiv, setSendCodeDiv] = useState(false);
-
-  // حالة لتخزين الرد من عملية تسجيل الدخول
   const [loginResult, setLoginResult] = useState(null);
   const [code, setCode] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-  // دالة للتعامل مع إرسال النموذج
   const handleFormSubmit = async (e) => {
-    e.preventDefault(); // منع النموذج من إعادة التحميل
+    e.preventDefault();
+    setLoading(true);
 
-    try {// استدعاء الدالة التي تقوم بتسجيل الدخول وتخزين النتيجة
-      const result = await axios.post("http://localhost:3002/login", {
+    try {
+      const result = await authAPI.login({
         username,
         password
       });
+
       setToken(result.data.token);
       localStorage.setItem('userToken', result.data.token);
-      toast.success('Login Successfully', {
+      
+      // تخزين بيانات المستخدم
+      const userData = result.data.user;
+      localStorage.setItem('userRole', userData.role);
+      localStorage.setItem('userName', `${userData.firstName} ${userData.lastName}`);
+      
+      toast.success('تم تسجيل الدخول بنجاح', {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -44,21 +47,37 @@ export default function login() {
         theme: "light",
         transition: Bounce,
       });
-      navigate("/");
-    } catch (error) {
-      toast.error(error.response.data.message, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-        transition: Bounce,
-      });
-    }
 
+      // التوجيه بناءً على الدور
+      switch (userData.role) {
+        case 'admin':
+          navigate('/admin/dashboard');
+          break;
+        case 'teacher':
+          navigate('/teacher/dashboard');
+          break;
+        case 'parent':
+          navigate('/parent/dashboard');
+          break;
+        default:
+          navigate('/');
+      }
+
+    } catch (error) {
+      toast.error(error.response?.data?.error || 'حدث خطأ في تسجيل الدخول', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const [forgetpass, setForgetPass] = useState({
@@ -66,22 +85,22 @@ export default function login() {
     code: '',
     password: '',
     passwordConfirmation: ''
-  })
+  });
 
   const handleForgetChange = (e) => {
     const { name, value } = e.target;
     setForgetPass({
       ...forgetpass,
       [name]: value,
-    })
-  }
+    });
+  };
 
   const [errors, setErrors] = useState({
     email: '',
     code: '',
     password: '',
     passwordConfirmation: ''
-  })
+  });
 
   const validateData = async () => {
     const Schema = object({
@@ -89,7 +108,7 @@ export default function login() {
       code: string().required(),
       password: string().min(8).max(20).required(),
       passwordConfirmation: string().oneOf([forgetpass.password, null], 'Passwords must match'),
-    })
+    });
 
     try {
       await Schema.validate(forgetpass, { abortEarly: false });
@@ -117,16 +136,16 @@ export default function login() {
           progress: undefined,
           theme: "light",
           transition: Bounce,
-        })
-      })
+        });
+      });
       return false;
     }
-  }
+  };
 
   const validateEmail = async () => {
     const Schema = object({
       email: string().required(),
-    })
+    });
 
     try {
       await Schema.validate(forgetpass);
@@ -136,68 +155,61 @@ export default function login() {
       });
       return true;
     } catch (error) {
-        setErrors({
-          ...errors,
-          email: error.errors[0]
-        });
-        toast.error(error.errors[0], {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-          transition: Bounce,
-        })
+      setErrors({
+        ...errors,
+        email: error.errors[0]
+      });
+      toast.error(error.errors[0], {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
       return false;
     }
-  }
+  };
 
   const handleSendCode = async () => {
-
-    if (! await validateEmail()) {
+    if (!await validateEmail()) {
       return false;
     }
     axios.get(`http://localhost:3002/send-email?email=${forgetpass.email}`)
-    .then(response => {
-      const { data } = response;
-      setCode(data);
-
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
-      // Handle error here
-    });
+      .then(response => {
+        const { data } = response;
+        setCode(data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
     setSendCodeDiv(false);
     setForgetPassDiv(true);
-  }
+  };
 
   const handleChangePass = async () => {
-
-    if (! await validateData()) {
+    if (!await validateData()) {
       return false;
     }
     if (code.randomVariable == forgetpass.code) {
-             if(forgetpass.password === forgetpass.passwordConfirmation){
-              try {
-                const result = await axios.post('http://localhost:3002/froget-pass-update', {
-                  pass: forgetpass.password,
-                  email: forgetpass.email                 
-                });
-              } catch (error) {
-                console.log('Client error:', error.response.status);
-                console.log('Error data:', error.response.data);
-              }
-
-
-             }
+      if (forgetpass.password === forgetpass.passwordConfirmation) {
+        try {
+          const result = await axios.post('http://localhost:3002/froget-pass-update', {
+            pass: forgetpass.password,
+            email: forgetpass.email
+          });
+        } catch (error) {
+          console.log('Client error:', error.response.status);
+          console.log('Error data:', error.response.data);
+        }
+      }
     }
-
     setSendCodeDiv(false);
     setForgetPassDiv(false);
-  }
+  };
 
   const handleCancel = () => {
     setForgetPass({
@@ -205,10 +217,10 @@ export default function login() {
       code: '',
       password: '',
       passwordConfirmation: ''
-    })
+    });
     setSendCodeDiv(false);
     setForgetPassDiv(false);
-  }
+  };
 
   return (
     <div className="loginpage">
@@ -216,7 +228,7 @@ export default function login() {
         <h2>تسجيل الدخول</h2>
         <form>
           <div>
-            <label>إسم المستخدم :</label>
+            <label>اسم المستخدم أو البريد الإلكتروني :</label>
             <input
               type="text"
               value={username}
@@ -232,7 +244,9 @@ export default function login() {
             />
           </div>
 
-          <button onClick={handleFormSubmit} className="submitbtn" type="submit">تسجيل الدخول</button>
+          <button onClick={handleFormSubmit} className="submitbtn" type="submit" disabled={loading}>
+            {loading ? 'جاري تسجيل الدخول...' : 'تسجيل الدخول'}
+          </button>
         </form>
         <button onClick={() => setSendCodeDiv(true)} className="forgetpass">نسيت كلمة المرور؟</button>
         {SendCodeDiv &&
@@ -300,7 +314,6 @@ export default function login() {
           </div>
         }
       </div>
-
     </div>
   );
 }

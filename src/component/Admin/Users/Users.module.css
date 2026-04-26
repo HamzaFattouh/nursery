@@ -1,0 +1,275 @@
+.usersPage {
+    padding: 32px;
+    text-align: right;
+}
+
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.pageHeader h1 {
+    font-size: 28px;
+    margin: 0;
+    color: #1a1a2e;
+}
+
+.addBtn {
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.addForm {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.addForm h3 {
+    margin: 0 0 16px;
+    color: #1a1a2e;
+}
+
+.addForm form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.addForm input,
+.addForm select {
+    padding: 10px 16px;
+    border: 2px solid #e5e5e5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.addForm input {
+    flex: 1;
+    min-width: 200px;
+}
+
+.submitBtn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.usersTable {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+}
+
+.usersTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.usersTable th,
+.usersTable td {
+    padding: 16px;
+    text-align: right;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.usersTable th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.usersTable tr:hover {
+    background: #fafafa;
+}
+
+.roleBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.roleBadge.admin {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.roleBadge.teacher {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.roleBadge.parent {
+    background: #fef3c7;
+    color: #b45309;
+}
+
+.statusBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.statusBadge.active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.statusBadge.pending {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.approveBtn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+}
+
+.actionBtn {
+    background: #fee2e2;
+    color: #dc2626;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+}
+
+.passwordAlert {
+    background: #fef3c7;
+    border: 1px solid #f59e0b;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.passwordAlert p {
+    margin: 0;
+    color: #92400e;
+}
+
+.passwordAlert strong {
+    font-size: 18px;
+    color: #b45309;
+}
+
+.passwordAlert button {
+    margin-right: auto;
+    background: #f59e0b;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.formRow {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.formRow input {
+    flex: 1;
+}
+
+.usersTable th,
+.usersTable td {
+    padding: 16px;
+    text-align: right;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.usersTable th {
+    background: #fafafa;
+    font-weight: 500;
+    color: #555;
+}
+
+.roleBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.roleBadge.admin {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.roleBadge.teacher {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.roleBadge.parent {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.statusBadge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+.statusBadge.active {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.statusBadge.pending {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.approveBtn {
+    background: #10b981;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.actionBtn {
+    background: #fafafa;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 8px;
+}
+
+.actionBtn.delete {
+    background: #fee2e2;
+    color: #dc2626;
+}

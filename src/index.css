@@ -1,17 +1,23 @@
-:root {
-  --text: #555;
-  --text-h: #1a1a2e;
-  --bg: #fafafa;
-  --border: #e5e5e5;
-  --code-bg: #f4f3ec;
-  --accent: #1a1a2e;
-  --accent-bg: rgba(26, 26, 46, 0.05);
-  --accent-border: rgba(26, 26, 46, 0.3);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+/* =====================================================
+   Global Styles - الأنماط العامة
+   ===================================================== */
+@import './styles/theme.css';
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+:root {
+  /* استخدام متغيرات التصميم */
+  --text: var(--text-primary);
+  --text-h: var(--text-primary);
+  --bg: var(--bg-secondary);
+  --border: var(--card-border);
+  --code-bg: var(--bg-light);
+  --accent: var(--primary-color);
+  --accent-bg: rgba(74, 144, 217, 0.05);
+  --accent-border: rgba(74, 144, 217, 0.3);
+  --social-bg: rgba(74, 144, 217, 0.1);
+  --shadow: var(--shadow-sm);
+
+  --sans: var(--font-family);
+  --heading: var(--font-family);
   --mono: ui-monospace, Consolas, monospace;
 
   font: 16px/145% var(--sans);
@@ -28,14 +34,15 @@
 body {
   margin: 0;
   font-family: var(--sans);
+  background: var(--bg);
 }
 
 #root {
-  width: 1126px;
+  width: 100%;
   max-width: 100%;
   margin: 0 auto;
   text-align: center;
-  border-inline: 1px solid var(--border);
+  border-inline: none;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -50,23 +57,18 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
+  font-size: var(--font-size-h1);
   letter-spacing: -1.68px;
   margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
 }
+
 h2 {
-  font-size: 24px;
+  font-size: var(--font-size-h2);
   line-height: 118%;
   letter-spacing: -0.24px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
+
 p {
   margin: 0;
 }
@@ -75,7 +77,7 @@ code,
 .counter {
   font-family: var(--mono);
   display: inline-flex;
-  border-radius: 4px;
+  border-radius: var(--border-radius-sm);
   color: var(--text-h);
 }
 

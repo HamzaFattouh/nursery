@@ -1,0 +1,85 @@
+/* =====================================================
+   Theme Variables - متغيرات التصميم
+   عدّل هذه القيم لتغيير مظهر الموقع
+   ===================================================== */
+
+:root {
+  /* ==================== ألوان العلامة التجارية ==================== */
+  --primary-color: #4a90d9;
+  --primary-light: #6ba3e0;
+  --primary-dark: #2d6cb5;
+  --primary-hover: #3a7bc8;
+
+  /* ==================== ألوان النص ==================== */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --text-white: #ffffff;
+
+  /* ==================== ألوان الخلفية ==================== */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa;
+  --bg-light: #f8f9fa;
+  --bg-dark: #1a1a2e;
+
+  /* ==================== ألوان الحالة ==================== */
+  --success-color: #28a745;
+  --warning-color: #ffc107;
+  --error-color: #dc3545;
+  --info-color: #17a2b8;
+
+  /* ==================== ألوان البطاقات ==================== */
+  --card-bg: #ffffff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-border: #e0e0e0;
+
+  /* ==================== ألوان التدرجات ==================== */
+  --gradient-primary: linear-gradient(135deg, #4a90d9 0%, #6ba3e0 100%);
+  --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  --gradient-hero: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+  /* ==================== حدود وحواف ==================== */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-xl: 20px;
+
+  /* ==================== الظلال ==================== */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+
+  /* ==================== المسافات ==================== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-xxl: 48px;
+
+  /* ==================== الخطوط ==================== */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-xxl: 24px;
+  --font-size-h1: 32px;
+  --font-size-h2: 28px;
+  --font-size-h3: 24px;
+
+  /* ==================== اسم الموقع ==================== */
+  --site-name: "حضانة أطفال";
+  --site-name-en: "Nursery Kids";
+
+  /* ==================== الشعارات ==================== */
+  --logo-icon: "👶";
+  --logo-text: "حضانة";
+
+  /* ==================== انتقالات ==================== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
